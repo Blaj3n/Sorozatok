@@ -32,3 +32,11 @@ print(f"A listában {darab} db vetítési dátummal rendelkező epizód van.")
 print("2. feladat 2.")
 vetitik = ["" for epizod in epizodok if "NI" not in epizod["datum"]]    # list compr.
 print(f"A listában {len(vetitik)} db vetítési dátummal rendelkező epizód van.")
+
+print("3. feladat")
+latta = 0
+for epizod in epizodok:
+    if epizod["latta"]:
+        latta += 1
+szazalek = latta / len(epizodok) * 100
+print(f"A listában lévő epizódok {szazalek:.2f}%-át látta.")
