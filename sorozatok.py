@@ -21,3 +21,10 @@ with open("lista.txt", "r", encoding="utf-8") as file:
             egy_epizod = {}
             adatok = []
 print(epizodok)
+
+print("2. feladat 1.")
+darab = 0
+for epizod in epizodok:
+    if "NI" not in epizod["datum"]:
+        darab += 1
+print(f"A listában {darab} db vetítési dátummal rendelkező epizód van.")
