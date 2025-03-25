@@ -29,3 +29,11 @@ for egyelem in lista:
     if egyelem % 2 == 0:
         lista.remove(egyelem)
 print(lista)
+
+# int = 6
+# string = "fg"
+# float, bool, lista, set, dict, complex
+lista = ["alma", "körte", "2"] # abcdefgh...0123456789
+print(max(lista))
+lista = ["1", "2:7", "2:8", "1002345457687"] # 0123456789
+print(max(lista))

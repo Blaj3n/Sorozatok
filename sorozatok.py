@@ -51,3 +51,10 @@ nap = ido_perc // (24 * 60)     # Div
 ora = ido_perc % (24 * 60) // 60
 perc = ido_perc % 60
 print(f"Sorozatnézéssel {nap} napot {ora} órát és {perc} percet töltött.")
+
+print("5. feladat")
+bekert_datum = input("Adjon meg egy dátumot! Dátum= ")  # 2017.11.03 < 2017.11.04
+for epizod in epizodok:
+    if epizod["datum"] <= bekert_datum and not epizod["latta"]:
+        print(f"{epizod["resz"]}\t {epizod["nev"]}")
+
