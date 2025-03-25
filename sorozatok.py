@@ -11,7 +11,7 @@ with open("lista.txt", "r", encoding="utf-8") as file:
             egy_epizod["datum"] = adatok[0]
             egy_epizod["nev"] = adatok[1]
             egy_epizod["resz"] = adatok[2]
-            egy_epizod["hossz"] = adatok[3]
+            egy_epizod["hossz"] = int(adatok[3])
             if adatok[4] == "1":
                 egy_epizod["latta"] = True
             else:
@@ -40,3 +40,14 @@ for epizod in epizodok:
         latta += 1
 szazalek = latta / len(epizodok) * 100
 print(f"A listában lévő epizódok {szazalek:.2f}%-át látta.")
+
+print("4. feladat")
+ido_perc = 0
+for epizod in epizodok:
+    if epizod["latta"]:
+        ido_perc += epizod["hossz"]
+print(ido_perc)
+nap = ido_perc // (24 * 60)     # Div
+ora = ido_perc % (24 * 60) // 60
+perc = ido_perc % 60
+print(f"Sorozatnézéssel {nap} napot {ora} órát és {perc} percet töltött.")
