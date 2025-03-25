@@ -58,3 +58,14 @@ for epizod in epizodok:
     if epizod["datum"] <= bekert_datum and not epizod["latta"]:
         print(f"{epizod["resz"]}\t {epizod["nev"]}")
 
+print("6. feladat")
+
+
+def hetnapja(ev:int, ho:int, nap:int) -> str:
+    napok = ['v', 'h', 'k', 'sze', 'cs', 'p', 'szo']
+    honapok = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
+    if ho < 3:
+        ev -= 1
+    hetnapja = napok[(ev + ev // 4 - ev // 100 + ev // 400 + honapok[ho - 1] + nap) % 7]
+    return hetnapja
+print(hetnapja(2005, 9, 2))
