@@ -86,3 +86,20 @@ if len(aznapi_sorozatok):
         print(egyelem)
 else:
     print("Az adott napon nem kerül adásba sorozat.")
+
+print("8. feladat")
+
+# sorozatok_konyvtar = {"Cím": {"hany_resz": 7, "hossza_ossz": 420}}
+sorozatok_konyvtar = {}
+for epizod in epizodok:
+    if sorozatok_konyvtar.get(epizod["nev"], 0):
+        sorozatok_konyvtar[epizod["nev"]]["hany_resz"] += 1
+        sorozatok_konyvtar[epizod["nev"]]["hossza_ossz"] += epizod["hossz"]
+    else: # not in
+        # ez a behelyezése a konyvtárba, azaz még nem tettük bele.
+        sorozatok_konyvtar[epizod["nev"]] = {}
+        sorozatok_konyvtar[epizod["nev"]]["hossza_ossz"] = epizod["hossz"]
+        sorozatok_konyvtar[epizod["nev"]]["hany_resz"] = 1
+# with open("summa.txt", "w", encoding="utf-8") as f:
+#     for egyelem in sorozatok_konyvtar:
+#         print(egyelem, sorozatok_konyvtar[egyelem]["hossz_ossz"], sorozatok_konyvtar[egyelem]["resz"], file = f)
