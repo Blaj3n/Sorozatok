@@ -53,7 +53,7 @@ perc = ido_perc % 60
 print(f"Sorozatnézéssel {nap} napot {ora} órát és {perc} percet töltött.")
 
 print("5. feladat")
-bekert_datum = input("Adjon meg egy dátumot! Dátum= ")  # 2017.11.03 < 2017.11.04
+bekert_datum = "2017.10.13" #input("Adjon meg egy dátumot! Dátum= ")  # 2017.11.03 < 2017.11.04
 for epizod in epizodok:
     if epizod["datum"] <= bekert_datum and not epizod["latta"]:
         print(f"{epizod["resz"]}\t {epizod["nev"]}")
@@ -69,3 +69,20 @@ def hetnapja(ev:int, ho:int, nap:int) -> str:
     hetnapja = napok[(ev + ev // 4 - ev // 100 + ev // 400 + honapok[ho - 1] + nap) % 7]
     return hetnapja
 print(hetnapja(2005, 9, 2))
+
+
+print("7. feladat")
+napocska = input("Adja meg a hét egy napját (például cs)! Nap= ")
+aznapi_sorozatok = set()
+for epizod in epizodok:
+    if "NI" not in epizod["datum"]:
+        splitelve = epizod["datum"].split(".")
+        # napos = hetnapja(int(epizod["datum"][:4]), int(epizod["datum"][5:7]), int(epizod["datum"][8:]))
+        napos = hetnapja(int(splitelve[0]), int(splitelve[1]), int(splitelve[2]))
+    if napos == napocska:
+        aznapi_sorozatok.add(epizod["nev"])
+if len(aznapi_sorozatok):
+    for egyelem in aznapi_sorozatok:
+        print(egyelem)
+else:
+    print("Az adott napon nem kerül adásba sorozat.")
