@@ -20,18 +20,18 @@ with open("lista.txt", "r", encoding="utf-8") as file:
             epizodok.append(egy_epizod)
             egy_epizod = {}
             adatok = []
-print(epizodok)
+# print(epizodok)
 
-print("2. feladat 1.")
+print("2. feladat")
 darab = 0
 for epizod in epizodok:
     if "NI" not in epizod["datum"]:
         darab += 1
-print(f"A listában {darab} db vetítési dátummal rendelkező epizód van.")
+print(f"A listában {darab} db vetítési dátummal rendelkező epizód van.\n")
 
-print("2. feladat 2.")
-vetitik = ["" for epizod in epizodok if "NI" not in epizod["datum"]]    # list compr.
-print(f"A listában {len(vetitik)} db vetítési dátummal rendelkező epizód van.")
+# print("2. feladat 2.")
+# vetitik = ["" for epizod in epizodok if "NI" not in epizod["datum"]]    # list compr.
+# print(f"A listában {len(vetitik)} db vetítési dátummal rendelkező epizód van.")
 
 print("3. feladat")
 latta = 0
@@ -39,26 +39,26 @@ for epizod in epizodok:
     if epizod["latta"]:
         latta += 1
 szazalek = latta / len(epizodok) * 100
-print(f"A listában lévő epizódok {szazalek:.2f}%-át látta.")
+print(f"A listában lévő epizódok {szazalek:.2f}%-át látta.\n")
 
 print("4. feladat")
 ido_perc = 0
 for epizod in epizodok:
     if epizod["latta"]:
         ido_perc += epizod["hossz"]
-print(ido_perc)
+# print(ido_perc)
 nap = ido_perc // (24 * 60)     # Div
 ora = ido_perc % (24 * 60) // 60
 perc = ido_perc % 60
-print(f"Sorozatnézéssel {nap} napot {ora} órát és {perc} percet töltött.")
+print(f"Sorozatnézéssel {nap} napot {ora} órát és {perc} percet töltött.\n")
 
 print("5. feladat")
-bekert_datum = "2017.10.13" #input("Adjon meg egy dátumot! Dátum= ")  # 2017.11.03 < 2017.11.04
+bekert_datum = input("Adjon meg egy dátumot! Dátum= ")  # 2017.11.03 < 2017.11.04
 for epizod in epizodok:
     if epizod["datum"] <= bekert_datum and not epizod["latta"]:
         print(f"{epizod["resz"]}\t {epizod["nev"]}")
-
-print("6. feladat")
+print("")
+# print("6. feladat")
 
 
 def hetnapja(ev:int, ho:int, nap:int) -> str:
@@ -68,7 +68,7 @@ def hetnapja(ev:int, ho:int, nap:int) -> str:
         ev -= 1
     hetnapja = napok[(ev + ev // 4 - ev // 100 + ev // 400 + honapok[ho - 1] + nap) % 7]
     return hetnapja
-print(hetnapja(2005, 9, 2))
+# print(hetnapja(2005, 9, 2))
 
 
 print("7. feladat")
@@ -86,6 +86,8 @@ if len(aznapi_sorozatok):
         print(egyelem)
 else:
     print("Az adott napon nem kerül adásba sorozat.")
+
+print("")
 
 print("8. feladat")
 
